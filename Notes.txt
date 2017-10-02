@@ -1,0 +1,63 @@
+Introduction =>0.14.7 (latest version)
+=============
+A javscript library used to create user interfaces
+Created and maintained by Facebook
+Its the "V" in MVC
+React makes no assumtions about the rest of your application
+React can be ran on both the client and the server
+
+Virtual DOM
+============
+1.Abstracts the DOM away giving you a simpler programming model
+2.Creates a slimmer version of the DOM and updated only the parts that need to re-rendered
+3.Its faster
+4.One way reactive data flow (though 2 way data binding is possible through add-on =>React Link )
+
+Normally in case of normal javascrpt manupulation the whole dom is re-painted (created again from scratch ) where as in case of virtual DOM it can choose and decide which parts of dom needs to be updated , so the performance is faster compared to whole dom repainting
+
+Why Use React ?
+================
+1.Simple -> React manages all of the UI updates for you
+2.Declarative ->Knows to 'refresh' only the changed parts of the application
+3.Readable & Reuasable ->Everthing is considered as a 'component' and is self contained making it easy to read and to re-use code
+
+JSX :Javascript Syntax Extension
+=================================
+A tag syntax very similsr to XML and XHTML inside your react component
+Not required but recommended (Makes things MUCH easier to work witk)
+
+Babel Javascript Compiler
+============================
+1.Trasform JSX code into Javascript
+2.Lets us write code that uses the ES6(ES2015) syntax
+3.Babel works very well with Webpack which is a module bundler and also have a dev server , with babel we can also write ES6 code which converts it to Es5
+
+We need below tag for react code to convert
+<script type="text/babel">
+
+States & Props
+===============
+1.Components can hold properties(props) that can be passed in as attributes
+2.Components can maintain internal "state" data.
+3.When a state is changed , the component is re-rendered and the markup will be updated .This makes React very dynamic.
+
+Lifecycle Mehods
+=================
+React fires off specific methods when a component is rendered or updated
+1.render :-Renders a component.The only one that is required.
+2.getInitialState :-you can set default values for your States.
+3.getDefaultProps :-Set defaults for properties.
+4.componentWillMount :-Invoked after the first render
+
+React Addons
+============
+Addons are basically collection of modules that aid in developing React.js applications:-
+1.Animation Addons
+2.2 way Data Binding Addons-React Link
+3.Testing Addons
+
+
+
+
+
+
