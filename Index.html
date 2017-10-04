@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Hello World Example - ReactJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="jumbotron">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Babel converts our react code to native javascript code-->
+    <script type="text/babel">
+        var Jumbotron=React.createClass({ render:function(){ return(
+        <div>
+            <div className="jumbotron">
+                <h1>Hello , From React Js</h1>
+                <p>This is a simple React Js application and using the basic functionalities of it.</p>
+                <p><a className="btn btn-info">Learn More</a></p>
+            </div>
+        </div>
+        ) } }); ReactDOM.render(
+        <Jumbotron />, document.getElementById('jumbotron'));
+    </script>
+</body>
+
+</html>
+
+<!--  <script type="text/babel">
+    /*  ReactDOM.render(
+            <h1>Hello, world!</h1>,
+            document.getElementById('myDiv')
+        ); */
+   var ButtonForm = React.createClass({
+    render: function(){
+        return (
+            <div>
+                <h3>Click the button</h3>
+                <input type="submit" />
+            </div>
+        );
+    }
+});
+var App = React.createClass({
+    render: function(){
+        return (
+            <div>
+                <h1> Welcome to my button app!</h1>
+                <ButtonForm />
+            </div>
+        );
+    }
+});
+React.render(<App />,  document.getElementById("content"));
+    </script> -->
