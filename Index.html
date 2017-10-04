@@ -22,19 +22,28 @@
     </div>
     <!--Babel converts our react code to native javascript code-->
     <script type="text/babel">
-        var Jumbotron=React.createClass({ render:function(){ return(
+        var Jumbotron=React.createClass({ 
+        getDefaultProps:function () {
+            return{
+                title:"Hello , From React Js",
+                text:"This is a dynamic component",
+                link:"htt://google.com"
+            }
+        },
+            render:function(){ return(
         <div>
             <div className="jumbotron">
                 <h1>Hello , From React Js</h1>
                 <h3 >
-                    {this.props.title}
+                    {this.props.text}
                 </h3>
                 <p>This is a simple React Js application and using the basic functionalities of it.</p>
                 <p><a className="btn btn-info" href={this.props.link}>Learn More</a></p>
             </div>
         </div>
-        ) } }); ReactDOM.render(
-        <Jumbotron title="This is a dynamic content" link="htt://google.com"/>, document.getElementById('jumbotron'));
+        ) } }); 
+        ReactDOM.render(
+        <Jumbotron />, document.getElementById('jumbotron'));
     </script>
 </body>
 
