@@ -26,12 +26,15 @@
         <div>
             <div className="jumbotron">
                 <h1>Hello , From React Js</h1>
+                <h3 >
+                    {this.props.title}
+                </h3>
                 <p>This is a simple React Js application and using the basic functionalities of it.</p>
-                <p><a className="btn btn-info">Learn More</a></p>
+                <p><a className="btn btn-info" href={this.props.link}>Learn More</a></p>
             </div>
         </div>
         ) } }); ReactDOM.render(
-        <Jumbotron />, document.getElementById('jumbotron'));
+        <Jumbotron title="This is a dynamic content" link="htt://google.com"/>, document.getElementById('jumbotron'));
     </script>
 </body>
 
