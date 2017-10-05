@@ -23,9 +23,12 @@
     <!--Babel converts our react code to native javascript code-->
     <script type="text/babel">
         var Jumbotron=React.createClass({ 
+            propTypes: {
+                title:React.PropTypes.string.isRequired
+            },
         getDefaultProps:function () {
             return{
-                title:"Hello , From React Js",
+                title:"Hello from React JS",
                 text:"This is a dynamic component",
                 link:"htt://google.com"
             }
@@ -33,7 +36,7 @@
             render:function(){ return(
         <div>
             <div className="jumbotron">
-                <h1>Hello , From React Js</h1>
+                <h1>{this.props.title}</h1>
                 <h3 >
                     {this.props.text}
                 </h3>
