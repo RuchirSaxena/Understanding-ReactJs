@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To Do App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <style>
+            a.delete{
+                color: red;
+                padding: 10px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="divtodo">
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/babel">
+        var App=React.createClass({
+            getInitialState:function(){
+                return{
+                    text:'',
+                    todos:[
+                        {
+                            id:1,
+                            text:'Meeting At Work'
+                        },
+                        {
+                            id:2,
+                            text:'Pickup vegetables'
+                        },
+                        {
+                            id:3,
+                            text:'Code Every Day'
+                        }
+                    ]
+                }
+            },
+
+            render:function(){
+                return(
+                    <div>
+                     
+                    <ToDoFrom onToDoAdd={this.handleTodoAdd} />
+                    <ToDoList todos={this.state.todos} deleteToDo={this.handleDeleteToDo} />
+                    </div>
+                    
+                )
+            },
+            handleTodoAdd:function(text){
+                var newToDo={
+                    id:this.state.todos.length+1,
+                    text:text
+                };
+                this.setState({todos:this.state.todos.concat(newToDo)});
+            },
+            handleDeleteToDo:function(todo){
+                console.log(todo);
+                var todos=this.state.todos;
+                for (var i = 0; i < todos.length; i++) {
+                    if (todos[i].id===todo.id) {
+                        todos.splice(i,1);
+                    }
+                    
+                }
+                this.setState({
+                    todos:todos
+                });
+            }
+        });
+
+        var ToDoFrom=React.createClass({
+            render:function(){
+                return(
+                    <div>
+                        <form>
+                        <div className="form-group">
+                        <label>To Do Form :</label>
+
+                        <input type="text" className="form-control" ref="txtToDo" onChange={this.onChange}/>
+                        <input type="button" className="form-control btn btn-info"  onClick={this.onSubmit} value="Save" />
+                        </div>
+                        </form>
+                    </div>
+                )
+            },
+
+            onChange:function(){
+                console.log('changing text...');
+            },
+            onSubmit:function(){
+                       
+
+                console.log(this.refs.txtToDo.value);
+                var todotxt=this.refs.txtToDo.value;
+                if(!todotxt){
+                    alert("Enter todo first");
+                    return;
+                }
+                this.props.onToDoAdd(todotxt);
+            }
+
+        });
+
+        var ToDoList=React.createClass({
+            render:function(){
+                return(
+                    <ul className="list-group">
+                      {
+                      
+                        this.props.todos.map(todo => {
+return <li className="list-group-item" todo={todo} key={todo.id}>
+{todo.text}
+<a className="delete" onClick={this.delete.bind(this, todo)} href="#">X</a>
+
+</li>
+                        })
+                      }
+                    </ul>
+                )
+            },
+            delete:function(todo){
+              //  console.log(todo)
+                this.props.deleteToDo(todo);
+            }
+        });
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById("divtodo")
+        );
+    </script>
+</body>
+</html>
