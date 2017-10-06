@@ -35,7 +35,7 @@
                        <input type="button" onClick={this.changeText} className="btn btn-primary" value="Click Me"/>
                        </form>
                        <br/>
-                       <Component2 />
+                       <Component2 text={this.state.text} />
                     </div>
         )
     },
@@ -57,6 +57,8 @@
             return(
                 <div>
                 this is nested componet 2
+                <h2>Getting below data from parent component=></h2>
+                <h3>{this.props.text}</h3>
                 </div>
             )
         }
