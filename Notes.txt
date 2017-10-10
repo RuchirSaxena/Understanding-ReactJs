@@ -56,6 +56,20 @@ Addons are basically collection of modules that aid in developing React.js appli
 2.2 way Data Binding Addons-React Link
 3.Testing Addons
 
+Learn
+===========
+=> const , 
+arrow fuction 
+spread operator => ... for passing multiple argus in function ,also these argus will be treated like array
+rest operator => its a replacement of apply method , basically we can pass array for fuction accepting multiple args
+life cycle of react 
+data passing between 2 componests 1. parent to child 2.child to parent 3. child to child
+stateless components
+super() constructor
+high order componests
+pure functions
+funtional component vs classical component
+
 
 
 
